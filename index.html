@@ -3,122 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Official domain of Lord Hope - House of the Phoenix Eternal">
-    <title>Lord Hope | House of the Phoenix Eternal</title>
+    <meta name="description" content="Anime enthusiast's personal introduction page">
+    <title>NekoSenpai | Anime Introduction</title>
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" as="style">
-    <link rel="preload" href="assets/images/crest.webp" as="image" type="image/webp">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;600&display=swap" as="style">
+    <link rel="preload" href="assets/images/hero.webp" as="image" type="image/webp">
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
-    <link rel="icon" href="assets/favicons/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/main.min.css">
-    
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        :root {
+            --primary: #ff4d8d;
+            --secondary: #6a5acd;
+            --dark: #1a1a2e;
+            --light: #fef6ff;
+            --accent: #ff9e3f;
+            --font-main: 'Poppins', sans-serif;
+            --font-jp: 'Noto Sans JP', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(to right, #fff 20%, #ff9e3f 40%, #ff9e3f 60%, #fff 80%);
+            background-size: 200% auto;
+            color: #000;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+        
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            min-height: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: url('https://i.imgur.com/9E8aS9a.jpg') no-repeat center center/cover;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .about-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="site-wrapper">
-        <header class="header" role="banner">
-            <div class="header__inner">
-                <h1 class="header__title">Lord Hope</h1>
-                <p class="header__subtitle">House of the Phoenix Eternal</p>
-            </div>
-        </header>
+    <header>
+        <div class="container header-content">
+            <div class="logo">NekoSenpai</div>
+            <nav>
+                <ul style="display: flex; gap: 1.5rem; list-style: none;">
+                    <li><a href="#about" style="color: white; text-decoration: none;">About</a></li>
+                    <li><a href="#favorites" style="color: white; text-decoration: none;">Favorites</a></li>
+                    <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <nav class="main-nav" role="navigation">
-            <ul class="main-nav__list">
-                <li class="main-nav__item"><a href="#about" class="main-nav__link">House Legacy</a></li>
-                <li class="main-nav__item"><a href="#chronicles" class="main-nav__link">Royal Chronicles</a></li>
-                <li class="main-nav__item"><a href="#armory" class="main-nav__link">Sacred Armory</a></li>
-                <li class="main-nav__item"><a href="#contact" class="main-nav__link">Summon the Lord</a></li>
-            </ul>
-        </nav>
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Konnichiwa, Weeb Friends!</h1>
+            <p>Welcome to my anime sanctuary! I'm NekoSenpai, a passionate otaku sharing my love for waifus, epic battles, and ramen adventures.</p>
+            <button style="background: linear-gradient(to right, var(--primary), var(--secondary)); border: none; padding: 12px 30px; border-radius: 50px; color: white; font-weight: 600; cursor: pointer; transition: transform 0.3s ease;">Explore My Anime World</button>
+        </div>
+    </section>
 
-        <main class="main-content" role="main">
-            <section id="about" class="content-section">
-                <h2 class="section-title">House Legacy</h2>
-                <div class="section-content">
-                    <img src="assets/images/crest.webp" alt="House Hope Crest" class="section-image" loading="lazy" width="200" height="200">
-                    <p>Founded in the Age of Ashes, House Hope has stood as the bulwark against darkness for seven generations. Our ancestral seat, the Obsidian Keep, overlooks the Valley of Dawn where the first phoenix was said to rise.</p>
-                </div>
-            </section>
-
-            <section id="chronicles" class="content-section">
-                <h2 class="section-title">Royal Chronicles</h2>
-                <div class="timeline">
-                    <div class="timeline__event">
-                        <h3 class="timeline__year">1274 AE</h3>
-                        <p class="timeline__description">Victory at the Battle of Emberfall</p>
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About This Weeb</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="https://i.imgur.com/JR9xXjq.jpg" alt="Anime Girl 1" loading="lazy">
                     </div>
-                    <div class="timeline__event">
-                        <h3 class="timeline__year">1342 AE</h3>
-                        <p class="timeline__description">Signing of the Eternal Pact</p>
+                    <div class="card-content">
+                        <h3>My Anime Journey</h3>
+                        <p>Started with Dragon Ball Z as a kid, fell down the rabbit hole with Attack on Titan, and now collecting figurines like Pokémon.</p>
                     </div>
                 </div>
-            </section>
-
-            <section id="armory" class="content-section">
-                <h2 class="section-title">Sacred Armory</h2>
-                <div class="armory-grid">
-                    <div class="armory-item">
-                        <h3 class="armory-item__title">Phoenix Blade</h3>
-                        <p class="armory-item__desc">Forged in dragonfire, tempered in starlight</p>
+                
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="https://i.imgur.com/mW4nZx6.jpg" alt="Anime Girl 2" loading="lazy">
                     </div>
-                    <div class="armory-item">
-                        <h3 class="armory-item__title">Aegis of Dawn</h3>
-                        <p class="armory-item__desc">Shield that has never been breached</p>
+                    <div class="card-content">
+                        <h3>Current Obsessions</h3>
+                        <p>Jujutsu Kaisen, Spy x Family, and anything with catgirls. Also deep in Genshin Impact hell (AR 58).</p>
                     </div>
                 </div>
-            </section>
-
-            <section id="contact" class="content-section">
-                <h2 class="section-title">Summon the Lord</h2>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Your Name</label>
-                        <input type="text" id="name" class="form-input" required>
+                
+                <div class="about-card">
+                    <div class="card-image">
+                        <img src="https://i.imgur.com/5XvAyxh.jpg" alt="Anime Girl 3" loading="lazy">
                     </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">Your Message</label>
-                        <textarea id="message" class="form-textarea" rows="5" required></textarea>
+                    <div class="card-content">
+                        <h3>Weeb Skills</h3>
+                        <p>Can recognize 100+ anime by OP music. Professional ramen slurper. Expert at crying over fictional characters.</p>
                     </div>
-                    <button type="submit" class="form-submit">Send Raven</button>
-                </form>
-            </section>
-        </main>
-
-        <footer class="footer" role="contentinfo">
-            <div class="footer__content">
-                <p class="footer__copyright">&copy; <span id="currentYear"></span> House of Hope. All rights reserved by blood oath.</p>
-                <div class="footer__links">
-                    <a href="#" class="footer__link">House Laws</a>
-                    <a href="#" class="footer__link">Kinship</a>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </section>
 
-    <!-- JavaScript -->
-    <script src="js/main.min.js" defer></script>
-    
-    <!-- Structured data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Lord Hope",
-        "jobTitle": "Noble Lord",
-        "affiliation": {
-            "@type": "Organization",
-            "name": "House of the Phoenix Eternal"
-        }
-    }
+    <script>
+        // Simple animation for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = 'scale(1.05)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Current year for footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
